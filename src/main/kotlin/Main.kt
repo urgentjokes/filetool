@@ -2,8 +2,8 @@ import java.io.File
 
 fun main(args: Array<String>) {
 //  val workingDirectory= File(".").canonicalPath
-  val workingDirectory=File("/google/src/cloud/dmail/pristine/google3/third_party/devsite/firebase/en/docs")
-  val outputFile=File("/usr/local/google/home/dmail/Documents/FB_inventory.txt")
+  val workingDirectory=File("/Users/davefriedman2023/developer-stuff/genkit/")
+  val outputFile=File("/Users/davefriedman2023/Documents/Genkit_inventory.txt")
   val rawFileList=workingDirectory.listFiles()
   val directoryList=getDirList(rawFileList)
   val listOfMDFiles=getMDFiles(directoryList)
@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
 fun getDirList(rawFileList:Array<File>):List<File> {
   val usableList=mutableListOf<File>()
   for (file in rawFileList)
-    if (file.isDirectory && !file.name.startsWith(".")) {
+    if (file.isDirectory && file.canonicalPath.endsWith("genkit/docs") && !file.name.startsWith(".")) {
       usableList.add(file)
     }
   return usableList
