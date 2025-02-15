@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
   val rawFileList=workingDirectory.listFiles()
   val directoryList=getDirList(rawFileList)
   val listOfMDFiles=getMDFiles(directoryList)
-  outputFileAttributes(listOfMDFiles,outputFile)
+  concatenateFiles(listOfMDFiles,outputFile)
 }
 
 fun getDirList(rawFileList:Array<File>):List<File> {
@@ -33,7 +33,7 @@ fun getMDFiles(directoryList:List<File>):MutableList<MutableList<File>> {
   return fileMap
 }
 
-fun outputFileAttributes(fileMap:MutableList<MutableList<File>>,
+fun concatenateFiles(fileMap:MutableList<MutableList<File>>,
                         outputFile:File) {
   var jumboCounter=0
 for (directory in fileMap) {
